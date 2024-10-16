@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Droppable - Accept</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+    #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+    #draggable, #draggable-nonvalid { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#draggable" ).draggable();
+      $( "#droppable" ).droppable({
+        accept: "#draggable",
+        classes: {
+          "ui-droppable-active": "ui-state-active",
+          "ui-droppable-hover": "ui-state-hover"
+        },
+        drop: function( event, ui ) {
+          $( this )
+            .addClass( "ui-state-highlight" )
+            .find( "p" )
+              .html( "Dropped!" );
+        }
+      });
+    } );
+    </script>
+  </head>
+  <body>
+  
+  <style>
+    body{text-align: center;}
+    .wrap{display: inline-block;}
+    #draggable{margin-top: 100px; width: 400px; height: 97px; background: none; border: 0;}
+    #droppable{margin-left: 200px; border: 0; width: 380px; height: 394px; background: url(./images/he_mm.png) no-repeat 50% 50% / contain;}
+    #droppable.ui-state-active{background-image: url(./images/he_ah.png);}
+  </style>
+  
+  <div class="wrap">
+    <div id="draggable" class="ui-widget-content">
+      <img src="./images/spoon.png" alt="">
+    </div>
+    
+    <div id="droppable" class="ui-widget-header"></div>
+  </div>
+   
+   
+   
+   
+  </body>
+  </html>
